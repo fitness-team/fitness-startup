@@ -1,0 +1,60 @@
+body
+{
+border: 1px solid #ff0000;
+background-color: #dddddd;
+width: 100%;
+height: 1200px;
+}
+
+#page {
+margin: 0px auto;
+width: 70%;
+height: 100%;
+border: 1px solid #ff0000;
+}
+
+.menu
+{
+margin: 20px auto auto -1px;
+width: 100%;
+height: 3%;
+border: 1px solid #00ff00;
+}
+
+#user-bar {
+margin: 0px auto auto -1px;
+width: 100%;
+height: 4%;
+border: 1px solid #ff0000;
+}
+
+.billboard-big{
+margin: 0px auto auto -1px;
+width: 100%;
+height: 25%;
+border: 1px solid #ffffff;
+}
+
+.billboard-small{
+margin: 10px auto auto -1px;
+width: 100%;
+height: 7%;
+border: 1px solid #ffffff;
+}
+
+.item{
+margin: 0px 0px 0px -1px;
+height: 100%;
+width: 33.16%;
+border: 1px solid #ddffdd;
+float:left;
+}
+
+.billboard-big .button
+{
+margin: 10px auto;
+height: 20%;
+width: 50%;
+border: 1px solid #ddffdd;
+}
+
