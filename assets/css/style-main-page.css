@@ -13,7 +13,7 @@ height: 100%;
 {
 margin: 20px auto 0px auto;
 width: 900px;
-height: 37.5px;   /*1250 * 0.03*/
+height: 30.5px;   /*1250 * 0.03*/
 
 border-radius:5px;
 -moz-border-radius:5px;
@@ -51,9 +51,45 @@ border-left: 0px; /* Fallback style */
 box-shadow: 0 0 0.0em rgba(0,0,0,0.4);
 -moz-box-shadow: 0 0 .0em rgba(0,0,0,0.4);
 -webkit-box-shadow: 0 0 .0em rgba(0,0,0,0.4);
+
 }
+.text
+{
 
 
+/*	text-align: center;
+	font-family: "League-Gothic", Courier;
+	font-size: 0.8em; text-transform: uppercase;
+	color: #707070;
+	text-shadow: 0.075em 0.075em 0em #f9b133, 0.105em 0.105em 0em #707070;
+	font-weight:normal;
+		text-align: center;
+	font-family: "Museo";
+	font-size: 0.5em; text-transform: uppercase;
+	color: #fff;
+	text-shadow: 0 0 0.01em #ffdd88, 0 0 0.02em #ffdd88, 
+	0 0 0.03em #ffdd88, 0 0 0.04em #ffdd88, 
+	0 0 0.07em #ffdd88, 0 0 0.08em #ffdd88, 
+	0 0 0.1em #ffdd88, 0 0 0.15em #ffdd88;
+	padding: 0.7em;*/
+	
+	/*text-align: center;
+	margin: 6px auto;
+	font-stretch:ultra-expanded;
+	font-family: "Trebuchet MS", "Times New Roman", "League-Gothic", Courier;
+	font-size: 0.6em; text-transform: uppercase;
+	color: #f9f6f6;
+	text-shadow: 0px 0.08em 0.24em #222;
+*/
+
+	margin: 6px auto;
+	font-size: 14px;
+    line-height: 19px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, .3) 1.0px 1.0px 1.0px;
+}
 .menu .button:active
 {
 /* When pressed, move it down 1px */
@@ -69,7 +105,7 @@ box-shadow: 0 0 .0em rgba(0,0,0,0.4);
 }
 
 
-.menu .logo
+.menu .logo .text
 {
 color:#f49f05;
 }
@@ -85,9 +121,12 @@ border-radius: 1.0em;
 -khtml-border-radius: 1.0em;
 -webkit-border-radius: 1.0em;
 border-right: 0px; /* Fallback style */
-font: bold 1.0em 'Trebuchet MS',Arial, Helvetica; /*Change the em value to scale the button*/
 float: right;
 color:#000000;
+}
+.menu .search .text
+{
+  margin:0px;
 }
 
 #user-bar {
