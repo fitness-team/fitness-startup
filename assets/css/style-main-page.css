@@ -1,18 +1,20 @@
-*
+﻿*
 {
-    behavior: url(../pie/ie-css3.htc); /* для IE */
+    border: none;
+	behavior: url(../pie/ie-css3.htc); /* для IE */
 }
 body
 {
-background-color: #dddddd;
+background-color: #f9f6f6;
 width: 100%;
 height: 100%;
 }
 
 .menu
 {
+float: left;
 margin: 20px auto 0px auto;
-width: 900px;
+width: 600px;
 height: 30.5px;   /*1250 * 0.03*/
 
 border-radius:5px;
@@ -20,9 +22,9 @@ border-radius:5px;
 -khtml-border-radius:0px;
 -webkit-border-radius:5px;
 
-box-shadow: 0 0 .55em rgba(0,0,0,0.8);
--moz-box-shadow: 0 0 0.55em rgba(0,0,0,0.8);
--webkit-box-shadow: 0 0 0.55em rgba(0,0,0,0.8);
+box-shadow: 5px 5px 10.55px rgba(0,0,0,0.8);
+-moz-box-shadow: 5px 5px 10.55px rgba(0,0,0,0.8);
+-webkit-box-shadow: 5px 5px 10.55px rgba(0,0,0,0.8);
 filter: progid:DXImageTransform.Microsoft.Shadow(Сolor='rgba(0,0,0,0.8)', Direction=135, Strength=5);
 
 background: #9d9898; /* Old browsers */
@@ -130,15 +132,17 @@ color:#000000;
 }
 
 #user-bar {
-margin: 12px auto 0em 60%;
+margin: 12px auto;
 width: 900px;
 height: 50px;   /*1250 * 0.04*/
-background-color: #dddddd; 
-
-border: 0em;
+background-color: #f9f6f6;
 box-shadow: 0 0 .0em rgba(0,0,0,0.4);
 -moz-box-shadow: 0 0 .0em rgba(0,0,0,0.4);
 -webkit-box-shadow: 0 0 .0em rgba(0,0,0,0.4);
+    box-shadow: 0 8px 3px -7px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 8px 3px -7px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 8px 5px -7px rgba(0,0,0,0.4);
+	clear: left;
 }
 
 #page {
@@ -147,74 +151,34 @@ width: 900px;
 height: 1250px;   
 background-color: #f9f6f6; 
 
--moz-border-radius: .5em;
--khtml-border-radius: .5em;
--webkit-border-radius: .5em;
-border-radius: .5em;
-
-box-shadow: 0 0 1.05em rgba(0,0,0,0.4);
--moz-box-shadow: 0 0 1.05em rgba(0,0,0,0.4);
--webkit-box-shadow: 0 0 1.05em rgba(0,0,0,0.4);
 }
 
 
 .billboard-big{
-margin: 0px auto auto -1px;
+margin: 60px auto auto -1px;
 width: 100%;
 height: 25%;
--moz-border-radius: .5em;
--khtml-border-radius: .5em;
--webkit-border-radius: .5em;
-border-radius: .5em;
 
-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--moz-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--webkit-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
-border: 1px solid #9c9c9c; /* Fallback style */
-border: 1px solid rgba(0, 0, 0, 0.3);      
 }
 
 .billboard-small{
-margin: 10px auto auto -1px;
+margin: 10px auto auto -60px;
 width: 100%;
 height: 7%;
--moz-border-radius: .5em;
--khtml-border-radius: .5em;
--webkit-border-radius: .5em;
-border-radius: .5em;
-
-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--moz-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--webkit-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
-border: 1px solid #9c9c9c; /* Fallback style */
-border: 1px solid rgba(0, 0, 0, 0.3); 
 }
 
 .item{
 margin: 0px 0px 0px -1px;
 height: 100%;
 width: 33.2%;
--moz-border-radius: .5em;
--khtml-border-radius: .5em;
--webkit-border-radius: .5em;
-border-radius: .5em;
-     
-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--moz-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
--webkit-box-shadow: 0 0 .05em rgba(0,0,0,0.4);
+
 float:left;
 }
-.borders
-{
--moz-border-radius: .0em;
-border-radius:0em;
--moz-border-radius:0em;
--khtml-border-radius:0em;
--webkit-border-radius:0em;
-border-top: 0px; /* Fallback style */
-border-right: 1px solid #9c9c9c; /* Fallback style */
-border-left: 1px solid #9c9c9c; /* Fallback style */
-border-bottom: 0px; /* Fallback style */
+
+.billboard-small .item{
+
+margin: 0px 0px 0px 8%;
+width: 25%;
 }
 
 .button
@@ -228,8 +192,8 @@ display: inline-block;
 text-align: center;
 color: #fff;
     
-border: 1px solid #9c9c9c; /* Fallback style */
-border: 1px solid rgba(0, 0, 0, 0.3);            
+border: 0px solid #9c9c9c; /* Fallback style */
+border: 0px solid rgba(0, 0, 0, 0.3);            
     
 text-shadow: 0 1px 0 rgba(0,0,0,0.4);
     
@@ -300,14 +264,14 @@ float:left;
 .item_icon
 {
 margin: 7%  auto auto 10%;
-width: 15%;
+width: 100%;
 float: left;
 }
 
 
 .item_text
 {
-margin: 10%  auto auto 10%;
+margin: -27%  auto auto 45%;
 float: left;
 
 	font-size: 14px;
@@ -320,7 +284,7 @@ float: left;
 
  .user_bar_text
 {
-margin: 0%  auto auto 10%;
+margin: 0%  auto auto 80%;
 float: left;
 
 	font-size: 14px;
@@ -333,6 +297,18 @@ float: left;
 {
 margin: 0%  auto auto 1%;
 width: 3%;
-float: left;
+float: right;
 
+}
+
+#triangle-right {
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid transparent;
+    border-left: 100px solid #FF0000;
+    border-bottom: 50px solid transparent;
+	
+box-shadow: 0 0 1.0em rgba(0,0,0,0.4);
+-moz-box-shadow: 0 0 10em rgba(0,0,0,0.4);
+-webkit-box-shadow: 0 0 1.0em rgba(0,0,0,0.4);
 }
