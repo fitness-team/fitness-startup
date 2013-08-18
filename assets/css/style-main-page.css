@@ -289,9 +289,9 @@ width: 24%;
 
 .button
 {
-margin: 70% 15% auto 15%;
-height: 13%;
-width: 70%;
+margin: 50% auto auto 0%;
+height: 40px;
+width: 230px;
 text-decoration: none;
 font: bold 1.5em 'Trebuchet MS',Arial, Helvetica; /*Change the em value to scale the button*/
 display: inline-block;
@@ -352,6 +352,37 @@ background: -o-linear-gradient(top, #ffdd88 0%,#f9b133 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #ffdd88 0%,#f9b133 100%); /* IE10+ */
 background: linear-gradient(to bottom, #ffdd88 0%,#f9b133 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdd88', endColorstr='#f9b133',GradientType=0 ); /* IE6-9 */
+}
+
+
+.button-green
+{
+background: #d2ff52; /* Old browsers */
+background: -moz-linear-gradient(top,  #d2ff52 0%, #91e842 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d2ff52), color-stop(100%,#91e842)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #d2ff52 0%,#91e842 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #d2ff52 0%,#91e842 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #d2ff52 0%,#91e842 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #d2ff52 0%,#91e842 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842',GradientType=0 ); /* IE6-9 */
+
+}
+
+.button-green:hover
+{
+background: #e1ff87; /* Old browsers */
+background: -moz-linear-gradient(top,  #e1ff87 0%, #6ee500 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1ff87), color-stop(100%,#6ee500)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #e1ff87 0%,#6ee500 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #e1ff87 0%,#6ee500 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #e1ff87 0%,#6ee500 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #e1ff87 0%,#6ee500 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1ff87', endColorstr='#6ee500',GradientType=0 ); /* IE6-9 */
+
+}
+.button-green:active
+{
+background: #6ee500;
 }
 
 .button-orange:active
