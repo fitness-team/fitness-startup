@@ -7,19 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/style-reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style-main-page.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/style-reset.css">
+		
+		<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-responsive.css">
   </head>
-  <body>      
+  <body id="body">      
 
 
 
     <div id="page">     
-	<div class="menu">
-       <a href="#"><div class="button right_border logo"><div class="text">logo</div></div></a>
-       <a href="#"><div class="button right_border"><div class="text">Программы тренировок</div></div></a>
-       <a href="#"><div class="button right_border"><div class="text">Упражнения</div></div></a>
-       <a href="#"><div class="button right_border"><div class="text">Питание</div></div></a>
-       <a href="#"><div class="button"><div class="text">О нас</div></div></a>
-    </div><!-- menu -->   
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Gym Advicer</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#trainings">Програми тренувань</a></li>
+              <li><a href="#exercise">Вправи</a></li>
+              <li><a href="#eat">Харчування</a></li>
+            </ul>
+			
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 	  <div id="user-bar">
       
         <div class="user_bar_text">user-bar</div>
@@ -37,10 +50,14 @@
 
     <div class="billboard-big shadow">
 
-
-	      <img src="assets/pictures/girl.png">
-
+		<div  id="motivate-photo">
+			<div class="span3 pull-right" >
+				<h1>Your personal <strong>Gym Advycer!</strong></h1>
+			</div>
+		</div>
       </div><!-- billboard-big -->
+
+
       <div class="billboard-small">
 
         <div class="item">
@@ -49,7 +66,7 @@
 	        <img src="assets/pictures/list1.1.png">
 		  </div><!-- item_icon -->
 	      <div class="item_text">
-				<h2>Оберіть програму тренувань</h2>
+				<h4>Оберіть програму тренувань</h4>
 				<p>У нас велика база програм тренувань перепірених на практиці. Також можете створювати індивідуальні програми.</p>
 		  </div><!-- item_test -->
         </div><!-- item -->
@@ -59,7 +76,7 @@
 	        <img src="assets/pictures/list1.1.png">
 		  </div><!-- item_icon -->
 		  <div class="item_text">
-				<h2>Займайтеся спортом</h2>
+				<h4>Займайтеся спортом</h4>
 				<p>Велика база вправ. Кожна вправа детально описана. Для наочності наведені картинки та відео. З нами займатися простіше.</p>
 		  </div><!-- item_test -->
 	</div><!-- item -->
@@ -69,7 +86,7 @@
 	        <img src="assets/pictures/list1.1.png">
 		  </div><!-- item_icon -->
 	      <div class="item_text">
-				<h2>Записуйте досягнення</h2>
+				<h4>Записуйте досягнення</h4>
 
 				<p>Ви можете записувати свої досягнення в особистому кабінеті або в программі для телефону. Зберігайте результат як фото, шоб бачити як змінюється ваше тіло</p>
 		  </div><!-- item_test -->
@@ -79,7 +96,7 @@
 	        <img src="assets/pictures/list1.1.png">
 		  </div><!-- item_icon -->
 	      <div class="item_text">
-				<h2>Аналізуйте прогрес</h2>
+				<h4>Аналізуйте прогрес</h4>
 				<p>Заходьте в особистий кабінет та проглядайте на графіках особистий ріст. Аналізуйте фото. Слідкуйте за особистими порадами.</p>
 		  </div><!-- item_test -->
         </div><!-- item -->
