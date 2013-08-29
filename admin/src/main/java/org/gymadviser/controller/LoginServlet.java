@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gymAdviser.dto.User;
+import org.gymAdviser.dto.Admin;
 import org.gymadviser.service.LoginService;
 
 /**
@@ -30,9 +30,9 @@ public class LoginServlet extends HttpServlet {
 		LoginService loginService = new LoginService();
 		boolean result = loginService.authentificate(userId, password);
 		if (result) {
-			User user = loginService.getUserDetales(userId);
+			Admin user = loginService.getAdminDetales(userId);
 			request.getSession().setAttribute("user", user);
-			response.sendRedirect("success.jsp");
+			response.sendRedirect("tables.jsp");
 			return;
 		}
 		response.sendRedirect("index.jsp");

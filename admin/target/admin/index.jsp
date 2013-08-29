@@ -7,9 +7,9 @@
 <title>Login Page</title>
 </head>
 <body>
-<%if( request.getRemoteAddr().equals("127.0.0.1")) {%>
+<%if( request.getRemoteAddr().equals("127.0.0.1") || request.getRemoteAddr().equals("89.252.54.10" )) {%>
 <form action="login" method="post">
-<input type="text" name="userI D"/>
+<input type="text" name="userID"/>
 <input type="password" name="password"/>
 <input type="submit" name="submit"/>
 </form>
