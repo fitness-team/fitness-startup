@@ -35,12 +35,14 @@ public class LoginServlet extends HttpServlet {
 		boolean result = loginService.authentificate(database, userId, password);
 		if (result) {
 			Admin admin = loginService.getAdminDetales(userId);
-			TablesService tablesService = new TablesService(database, userId, password);
-			ArrayList<String> tables = tablesService.getTables();
+			TablesService tablesService = new TablesService();
+			ArrayList<String> tables = tablesService.getTables(database, userId, password);
 			request.getSession().setAttribute("admin", admin);
 			request.getSession().setAttribute("tables", tables);
-			System.out.print(admin.getAdminName());
-			response.sendRedirect("tables.jsp");
+			request.getSession().setAttribute("database", database);
+			request.getSession().setAttribute("userId", userId);
+			request.getSession().setAttribute("password", password);
+			response.sendRedirect("tables-list.jsp");
 			return;
 		}
 		response.sendRedirect("index.jsp");

@@ -23,7 +23,7 @@
 		</form>
 	<%
 		} else {
-				response.sendRedirect("tables.jsp");
+				response.sendRedirect("tables-list.jsp");
 			}
 		} else {
 			out.print(request.getRemoteAddr());

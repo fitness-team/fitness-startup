@@ -26,8 +26,21 @@ public class TableServlet extends HttpServlet {
 	 *      response)
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
-		    throws IOException, ServletException {
-	
+		    throws IOException, ServletException {	
+		String database, userId, password;
+		database = (String) request.getSession().getAttribute("database");
+		userId = (String) request.getSession().getAttribute("userID");
+		password = (String) request.getSession().getAttribute("password");
+		LoginService loginService = new LoginService();
+		boolean result = loginService.authentificate(database, userId, password);
+		if (result) {
+			//TablesService tablesService = new TablesService();
+			//ArrayList<String> tables = tablesService.getTables(database, userId, password);
+			//request.getSession().setAttribute("tables", tables);
+			response.sendRedirect("table.jsp");
+			return;
+		}
+		response.sendRedirect("index.jsp");
 	}
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

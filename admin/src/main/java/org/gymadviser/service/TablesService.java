@@ -10,15 +10,10 @@ import java.util.ArrayList;
 
 public class TablesService extends CommonService {
 
-	private ArrayList<String> tables = new ArrayList<String>();
 
-	public ArrayList<String> getTables() {
-		System.out.println("size = " + tables.size());
-		return tables;
-	}
+	public ArrayList<String> getTables(String database, String userId, String passward) {
 
-	public TablesService(String database, String userId, String passward) {
-
+		ArrayList<String> tables = new ArrayList<String>();
 		Connection conn = null;
 		Statement stmt = null;
 		try {
@@ -62,6 +57,12 @@ public class TablesService extends CommonService {
 				se.printStackTrace();
 			}// end finally try
 		}// end try
+		return tables;
+	}
+
+	public TablesService() {
+
+		
 
 	}
 }

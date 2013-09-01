@@ -8,17 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Success</title>
-</head>
+
 <body>
 	<jsp:useBean id="admin" class="org.gymAdviser.dto.Admin" scope="session"></jsp:useBean>
-<!--	<jsp:useBean id="tables" class="java.util.ArrayList" scope="session"></jsp:useBean>-->
 	<h3>Hello, <jsp:getProperty property="adminName" name="admin"/>
 	</h3>
-	<table>  
-	    <c:forEach var="empBean" items="${sessionScope['tables']}">
+	<table> 
+	    <c:forEach var="tableName" items="${sessionScope['tables']}">
 	        <tr>
 	            <td>
-	                <a href="table?name='${empBean}'"><c:out value="${empBean}"/></a>
+	                <a href="table?name='${tableName}'"><c:out value="${tableName}"/></a>
 	            </td>
 	        </tr>
 	    </c:forEach>

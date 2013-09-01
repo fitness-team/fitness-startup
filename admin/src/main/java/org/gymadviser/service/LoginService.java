@@ -36,6 +36,10 @@ public class LoginService extends CommonService {
 		USER = userId;
 		PASS = password;
 		if (!passwordCheck(password) || !loginCheck(userId)) {
+
+			System.out.println("fail check");
+			System.out.println("psw = " + password);
+			System.out.println("user = " + userId);
 			return false;
 		}
 
@@ -71,6 +75,7 @@ public class LoginService extends CommonService {
 			}// end finally try
 		}// end try
 
+		System.out.println("fail return");
 		return result;
 	}
 
