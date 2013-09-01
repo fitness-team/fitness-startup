@@ -7,16 +7,28 @@
 <title>Login Page</title>
 </head>
 <body>
-<%if( request.getRemoteAddr().equals("127.0.0.1") || request.getRemoteAddr().equals("89.252.54.10" )) {%>
-<form action="login" method="post">
-<input type="text" name="userID"/>
-<input type="password" name="password"/>
-<input type="submit" name="submit"/>
-</form>
-
-<%}else{
-	out.print(request.getRemoteAddr());
-	}%>
+	<jsp:useBean id="admin" class="org.gymAdviser.dto.Admin" scope="session"></jsp:useBean>
+<%
+	if (request.getRemoteAddr().equals("127.0.0.1")
+			|| request.getRemoteAddr().equals("89.252.54.10")) {
+%>
+	<%
+		if (admin.getAdminName() == null) {
+	%>
+		<form action="login" method="post">
+		database<input type="text" name="database"/>
+		login<input type="text" name="userID"/>
+		password<input type="password" name="password"/>
+		<input type="submit" name="submit"/>
+		</form>
+	<%
+		} else {
+				response.sendRedirect("tables.jsp");
+			}
+		} else {
+			out.print(request.getRemoteAddr());
+		}
+	%>
 
 </body>
 </html>

@@ -16,8 +16,8 @@ import org.gymadviser.service.TablesService;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/table")
+public class TableServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,9 +25,13 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		    throws IOException, ServletException {
+	
+	}
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String database, userId, password;
+		/*String database, userId, password;
 		database = request.getParameter("database");
 		userId = request.getParameter("userID");
 		password = request.getParameter("password");
@@ -43,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("tables.jsp");
 			return;
 		}
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index.jsp");*/
 	}
 
 }

@@ -6,18 +6,16 @@ import org.gymAdviser.dto.Admin;
 
 import java.sql.*;
 
-public class LoginService {
-	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "org.postgresql.Driver";
-	static final String DB_URL = "jdbc:postgresql://ec2-54-213-58-1.us-west-2.compute.amazonaws.com:5432/gymadviser_db";
+public class LoginService extends CommonService {
 
 	// Database credentials
 	static String USER = "";
 	static String PASS = "";
+	static String DATABASE = "";
 	HashMap<String, String> users = new HashMap<String, String>();
 
 	public LoginService() {
-		users.put("postgres", "postgres default");
+		users.put("postgres", "postgres default admin");
 		users.put("dshevchyk", "Dima Shevchyk");
 		users.put("dimahum", "Dima Hum");
 		users.put("mih403", "Misha Fartuh");
@@ -32,8 +30,9 @@ public class LoginService {
 		return users.get(userId) != null;
 	}
 
-	public boolean authentificate(String userId, String password) {
-		// STEP 3: Open a connection
+	public boolean authentificate(String database, String userId,
+			String password) {
+		DATABASE = database;
 		USER = userId;
 		PASS = password;
 		if (!passwordCheck(password) || !loginCheck(userId)) {
@@ -42,40 +41,19 @@ public class LoginService {
 
 		boolean result = false;
 		Connection conn = null;
-		Statement stmt = null;
 		try {
 			// STEP 2: Register JDBC driver
-			Class.forName("org.postgresql.Driver");
+			Class.forName(JDBC_DRIVER);
 
 			// STEP 3: Open a connection
 			System.out.println("Connecting to database...");
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			conn = DriverManager.getConnection(DB_URL + DATABASE, USER, PASS);
 
-			// STEP 4: Execute a query
-			// System.out.println("Creating statement...");
-			// stmt = conn.createStatement();
-			// String sql;
-			// sql = "SELECT id, first, last, age FROM Employees";
-			// ResultSet rs = stmt.executeQuery(sql);
 			result = true;
-			// // STEP 5: Extract data from result set
-			// while (rs.next()) {
-			// // Retrieve by column name
-			// int id = rs.getInt("id");
-			// int age = rs.getInt("age");
-			// String first = rs.getString("first");
-			// String last = rs.getString("last");
-			//
-			// // Display values
-			// System.out.print("ID: " + id);
-			// System.out.print(", Age: " + age);
-			// System.out.print(", First: " + first);
-			// System.out.println(", Last: " + last);
-			// }
-			// STEP 6: Clean-up environment
-			// rs.close();
-			// stmt.close();
 			conn.close();
+		} catch (ClassNotFoundException ex) {
+			System.out.println("Error: unable to load driver class!");
+			ex.printStackTrace();
 		} catch (SQLException se) {
 			// Handle errors for JDBC
 			se.printStackTrace();
@@ -84,11 +62,7 @@ public class LoginService {
 			e.printStackTrace();
 		} finally {
 			// finally block used to close resources
-			try {
-				if (stmt != null)
-					stmt.close();
-			} catch (SQLException se2) {
-			}// nothing we can do
+
 			try {
 				if (conn != null)
 					conn.close();
@@ -102,11 +76,10 @@ public class LoginService {
 
 	public Admin getAdminDetales(String userId) {
 		Admin admin = new Admin();
-		System.out.print(userId);
 		admin.setAdminName(users.get(userId));
-
-		System.out.print(admin.getAdminName());
 		admin.setAdminId(userId);
+		System.out.print(users.get(userId));
 		return admin;
 	}
+
 }
