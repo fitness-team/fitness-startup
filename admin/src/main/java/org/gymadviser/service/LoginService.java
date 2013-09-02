@@ -75,7 +75,6 @@ public class LoginService extends CommonService {
 			}// end finally try
 		}// end try
 
-		System.out.println("fail return");
 		return result;
 	}
 
@@ -83,7 +82,6 @@ public class LoginService extends CommonService {
 		Admin admin = new Admin();
 		admin.setAdminName(users.get(userId));
 		admin.setAdminId(userId);
-		System.out.print(users.get(userId));
 		return admin;
 	}
 

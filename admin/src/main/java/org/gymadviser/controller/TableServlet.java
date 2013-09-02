@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.gymAdviser.dto.Admin;
+import org.gymAdviser.dto.Table;
 import org.gymadviser.service.LoginService;
 import org.gymadviser.service.TablesService;
 
@@ -29,14 +30,15 @@ public class TableServlet extends HttpServlet {
 		    throws IOException, ServletException {	
 		String database, userId, password;
 		database = (String) request.getSession().getAttribute("database");
-		userId = (String) request.getSession().getAttribute("userID");
+		userId = (String) request.getSession().getAttribute("userId");
 		password = (String) request.getSession().getAttribute("password");
 		LoginService loginService = new LoginService();
 		boolean result = loginService.authentificate(database, userId, password);
 		if (result) {
-			//TablesService tablesService = new TablesService();
-			//ArrayList<String> tables = tablesService.getTables(database, userId, password);
-			//request.getSession().setAttribute("tables", tables);
+			TablesService tablesService = new TablesService();
+			System.out.println(request.getParameter("name"));
+			Table table = tablesService.getTable(database, userId, password, request.getParameter("name"));
+			request.getSession().setAttribute("table", table);
 			response.sendRedirect("table.jsp");
 			return;
 		}
