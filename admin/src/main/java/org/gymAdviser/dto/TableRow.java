@@ -24,4 +24,8 @@ public class TableRow {
 			return new Object();
 		return row.get(i);
 	}
+	public int size()
+	{
+		return row.size();
+	}
 }

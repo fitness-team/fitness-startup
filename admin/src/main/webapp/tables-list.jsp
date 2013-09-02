@@ -11,7 +11,7 @@
 
 <body>
 	<jsp:useBean id="admin" class="org.gymAdviser.dto.Admin" scope="session"></jsp:useBean>
-	<h3>Hello, <jsp:getProperty property="adminName" name="admin"/>
+	<h3>Admin: <jsp:getProperty property="adminName" name="admin"/>
 	</h3>
 	<table> 
 	    <c:forEach var="tableName" items="${sessionScope['tables']}">

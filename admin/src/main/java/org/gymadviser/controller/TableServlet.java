@@ -38,6 +38,7 @@ public class TableServlet extends HttpServlet {
 			TablesService tablesService = new TablesService();
 			System.out.println(request.getParameter("name"));
 			Table table = tablesService.getTable(database, userId, password, request.getParameter("name"));
+			request.getSession().setAttribute("tableName", request.getParameter("name"));
 			request.getSession().setAttribute("table", table);
 			response.sendRedirect("table.jsp");
 			return;

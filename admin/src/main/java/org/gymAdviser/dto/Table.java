@@ -17,10 +17,14 @@ public class Table {
 		rows.add(obj);
 	}
 	
-	public Object getRow(int i)
+	public TableRow getRow(int i)
 	{
 		if(i < 0 || i >= rows.size())
 			return new TableRow();
 		return rows.get(i);
+	}
+	public int size()
+	{
+		return rows.size();
 	}
 }
