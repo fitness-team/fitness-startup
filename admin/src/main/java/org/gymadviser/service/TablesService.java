@@ -8,11 +8,106 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.gymAdviser.dto.Table;
 import org.gymAdviser.dto.TableRow;
 
 public class TablesService extends CommonService {
+
+	public void insertData(String database, String userId, String passward,
+			String tableName, Map<String, String[]> params) {
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName(JDBC_DRIVER);
+			Map<String, String> types = new HashMap<String, String>();
+			// STEP 3: Open a connection
+			System.out.println("Connecting to database...");
+			conn = DriverManager.getConnection(DB_URL + database, userId,
+					passward);
+
+			stmt = conn.createStatement();
+
+			Iterator<String> it = params.keySet().iterator();
+			int i = 0;
+			String key;
+
+			ResultSet rsColumns = null;
+			DatabaseMetaData meta = conn.getMetaData();
+			rsColumns = meta.getColumns(null, null,
+					tableName.substring(1, tableName.length() - 1), null);
+			while (rsColumns.next()) {
+				types.put(rsColumns.getString("COLUMN_NAME"),
+						rsColumns.getString("TYPE_NAME"));
+				System.out.println("key = "
+						+ rsColumns.getString("COLUMN_NAME"));
+			}
+			String sqlInsert;
+
+			sqlInsert = "insert into "
+					+ tableName.substring(1, tableName.length() - 1) + " (";
+			it = params.keySet().iterator();
+			i = 0;
+			while (it.hasNext()) {
+				key = (String) it.next();
+				++i;
+				if (key.equals("submit")) {
+					continue;
+				}
+				sqlInsert += key;
+				if (i < params.size()) {
+					sqlInsert += ", ";
+				}
+			}
+			sqlInsert += ") VALUES(";
+			it = params.keySet().iterator();
+			i = 0;
+			String value = null;
+			while (it.hasNext()) {
+				key = (String) it.next();
+				++i;
+				if (key.equals("submit")) {
+					continue;
+				}
+				String[] values = ((String[]) params.get(key));
+				value = values[0];
+				System.out.println("key!!! = " + key);
+				if (types.get(key).equals("varchar")) {
+
+					value = "'" + value + "'";
+				}
+				sqlInsert += value;
+				if (i < params.size()) {
+					sqlInsert += ", ";
+				}
+			}
+			sqlInsert += ");";
+			System.out.println(sqlInsert);
+			stmt.executeUpdate(sqlInsert);
+			conn.close();
+		} catch (ClassNotFoundException ex) {
+			System.out.println("Error: unable to load driver class!");
+			ex.printStackTrace();
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}// end finally try
+		}// end try
+	}
 
 	public Table getTable(String database, String userId, String passward,
 			String tableName) {
@@ -28,7 +123,6 @@ public class TablesService extends CommonService {
 			conn = DriverManager.getConnection(DB_URL + database, userId,
 					passward);
 
-			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 			String sqlRows;
 			sqlRows = "select  * from "

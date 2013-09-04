@@ -9,6 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Success</title>
 <body>
+	<%
+		if (request.getRemoteAddr().equals("127.0.0.1")
+				|| request.getRemoteAddr().equals("89.252.54.10")) {
+	%>
 	<jsp:useBean id="admin" class="org.gymAdviser.dto.Admin"
 		scope="session"></jsp:useBean>
 	<jsp:useBean id="table" class="org.gymAdviser.dto.Table"
@@ -21,37 +25,59 @@
 	<h4>
 		Table:
 		<%
-		out.println((String) request.getSession().getAttribute("tableName"));
+		out.println((String) request.getSession().getAttribute(
+					"tableName"));
 	%>
 	</h4>
-	<table style="border: 1px solid">
-		<tr>
-			<%
-				TableRow row = table.getRow(0);
-				for (int j = 0; j < row.size(); ++j) {
-			%>
-			<td style="border: 1px solid"><b><%=row.getFild(j)%></b></td>
-			<%
-				}
-			%>
-			<%
-				for (int i = 1; i < table.size(); ++i) {
-					row = table.getRow(i);
-			%>
-		</tr>
 
-		<tr>
-			<%
-				for (int j = 0; j < row.size(); ++j) {
-			%>
-			<td style="border: 1px solid"><%=row.getFild(j)%></td>
+	<form action="tableinsert" method="post">
+		<table style="border: 1px solid">
+			<tr>
+				<%
+					TableRow row = table.getRow(0);
+						for (int j = 0; j < row.size(); ++j) {
+				%>
+				<td style="border: 1px solid"><b><%=row.getFild(j)%></b></td>
+				<%
+					}
+				%>
+				<%
+					for (int i = 1; i < table.size(); ++i) {
+							row = table.getRow(i);
+				%>
+			</tr>
+
+			<tr>
+				<%
+					for (int j = 0; j < row.size(); ++j) {
+				%>
+				<td style="border: 1px solid"><%=row.getFild(j)%></td>
+				<%
+					}
+				%>
+			</tr>
 			<%
 				}
 			%>
-		</tr>
-		<%
-			}
-		%>
-	</table>
+			<tr>
+				<%
+					row = table.getRow(0);
+						for (int j = 0; j < row.size(); ++j) {
+				%>
+				<td><input type="text" name=<%=row.getFild(j)%>
+					value=<%=row.getFild(j)%> /></td>
+				<%
+					}
+				%>
+			</tr>
+
+		</table>
+		<input type="submit" name="submit" value="Insert" />
+	</form>
+	<%
+		} else {
+			out.print(request.getRemoteAddr());
+		}
+	%>
 </body>
 </html>
