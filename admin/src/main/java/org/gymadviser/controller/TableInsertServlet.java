@@ -35,7 +35,8 @@ public class TableInsertServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String database, userId, password;
 		database = (String) request.getSession().getAttribute("database");
 		userId = (String) request.getSession().getAttribute("userId");
@@ -44,14 +45,16 @@ public class TableInsertServlet extends HttpServlet {
 		boolean result = loginService
 				.authentificate(database, userId, password);
 		if (result) {
-			String tableName = (String) request.getSession().getAttribute("tableName");
+			String tableName = (String) request.getSession().getAttribute(
+					"tableName");
 			Map<String, String[]> params = request.getParameterMap();
 
 			TablesService tablesService = new TablesService();
-			tablesService.insertData(database, userId, password, tableName, params);
+			tablesService.insertData(database, userId, password, tableName,
+					params);
 			request.getSession().setAttribute("tableName",
 					request.getParameter("name"));
-			response.sendRedirect("table?name="+ tableName);
+			response.sendRedirect("table?name=" + tableName);
 			return;
 		}
 		response.sendRedirect("index.jsp");

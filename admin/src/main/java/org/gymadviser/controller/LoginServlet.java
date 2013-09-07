@@ -15,7 +15,7 @@ import org.gymadviser.service.TablesService;
 
 /**
  * Servlet implementation class LoginServlet
- */ 
+ */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
@@ -27,16 +27,20 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String database, userId, password;
 		database = request.getParameter("database");
 		userId = request.getParameter("userID");
 		password = request.getParameter("password");
 		LoginService loginService = new LoginService();
-		boolean result = loginService.authentificate(database, userId, password);
+		boolean result = loginService
+				.authentificate(database, userId, password);
 		if (result) {
 			Admin admin = loginService.getAdminDetales(userId);
 			TablesService tablesService = new TablesService();
-			ArrayList<String> tables = tablesService.getTables(database, userId, password);
+			ArrayList<String> tables = tablesService.getTables(database,
+					userId, password);
 			request.getSession().setAttribute("admin", admin);
 			request.getSession().setAttribute("tables", tables);
 			request.getSession().setAttribute("database", database);
