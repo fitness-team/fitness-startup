@@ -38,7 +38,7 @@ pageEncoding="UTF-8"
 	%>
 	</h4>
 
-	<form accept-charset="UTF-8" action="tableinsert" method="post">
+	<form accept-charset="ISO-8859-1" action="tableinsert" method="post">
 		<table style="border: 1px solid">
 			<tr>
 				<%
