@@ -4,6 +4,9 @@
 	pageEncoding="UTF-8"
 	import="org.gymAdviser.dto.Admin,org.gymAdviser.dto.TableRow"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,7 +33,7 @@
 	%>
 	</h4>
 
-	<form accept-charset="ISO-8859-1" action="tableinsert" method="post">
+	<form action="tableinsert" method="post">
 		<table style="border: 1px solid">
 			<tr>
 				<%
