@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="org.gymadvicer.utils.*"%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -10,40 +11,7 @@
 		<title>Main Page</title>
 	</head>
 	<body>
-		<div class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-		  		<div class="navbar-header">
-		    		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-		    		</button>
-		    		<a class="navbar-brand" href="#">Gym Avicer</a>
-		  		</div>
-		  		<div class="collapse navbar-collapse">
-		    		<ul class="nav navbar-nav pull-right">
-		      			<li><a href="login.jsp">Ввійти</a></li>
-		      			<li><a href="#"><img src="assets/pictures/vkontakte_512x512.png" alt="vk"/></a></li>
-		      			<li><a href="#"><img src="assets/pictures/facebook_512x512.png" alt="fb"/></a></li>
-		      			<li><a href="#"><img src="assets/pictures/twitter_512x512.png" alt="google"/></a></li>
-		      			<li><a href="#">Зареєструватись</a></li>
-		    		</ul>
-		  		</div><!--/.nav-collapse -->
-			</div>
-		</div><!-- navbar -->
-		
-		<div class="subnav subnav-fixed">
-    		<ul class="nav nav-pills">
-      			<li><a href="#trainings">Програми тренувань</a></li>
-              	<li><a href="#exercise">Вправи</a></li>
-              	<li><a href="#eat">Харчування</a></li>
-              	<li>
-              		<form class="navbar-search" action="">
-            			<input type="text" class="search-query span2" placeholder="Search">
-          			</form>
-              	</li>
-    		</ul>
-  		</div>
+		<%=BuildPageUtil.createNavbar(false)%>
   		
   		<div class="container">
   			<div class="hero-unit" id="motivate-photo">

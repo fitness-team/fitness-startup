@@ -10,7 +10,8 @@
 	<jsp:useBean id="admin" class="org.gymAdviser.dto.Admin" scope="session"></jsp:useBean>
 <%
 	if (request.getRemoteAddr().equals("127.0.0.1")
-			|| request.getRemoteAddr().equals("89.252.54.10")) {
+			|| request.getRemoteAddr().equals("89.252.54.10")
+			|| request.getRemoteAddr().equals("109.197.217.122")) {
 %>
 	<%
 		if (admin.getAdminName() == null) {
